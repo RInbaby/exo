@@ -7,8 +7,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lidaverse/PlayerPage.dart';
 import 'package:lidaverse/common/images/images.dart';
 import 'package:lidaverse/common/theme/app_colors.dart';
+import 'package:lidaverse/common/theme/app_dimens.dart';
 import 'package:lidaverse/common/utils.dart';
 import 'package:lidaverse/model/media.dart';
+import 'package:lidaverse/widget/custom_back_ground_paint.dart';
+import 'package:lidaverse/widget/custom_header.dart';
 
 //import 'model/media.dart';
 //
@@ -212,7 +215,7 @@ import 'package:lidaverse/model/media.dart';
 // }
 
 //ChewieDemo(sampleVideo: t,)
-
+const painBack = BackCustomPainter();
 
 class MyHomePage extends StatefulWidget {
   final String title;
@@ -229,7 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<List<Media>> loadMediaFiles() async {
     String jsonString =
-    await rootBundle.loadString('assets/data/media.exolist.json');
+        await rootBundle.loadString('assets/data/media.exolist.json');
     setState(() {
       dataReturned = true;
       media = Media.parseMediaLists(jsonString);
@@ -252,11 +255,20 @@ class _MyHomePageState extends State<MyHomePage> {
       DeviceOrientation.portraitUp,
     ]);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('AAAAAAAAAAA'),
-      ),
-      body: !dataReturned
+    return MaterialApp(
+      // appBar: AppBar(
+      //   title: Text('Lidaverse'),
+      //   backgroundColor: AppColors.blue,
+      //   leading: Padding(
+      //     padding: EdgeInsets.only(left: 6,top: 4,bottom: 4),
+      //     child: SvgPicture.asset(
+      //       Images.img_set,
+      //       color: AppColors.white,
+      //       alignment: Alignment.center,
+      //     ),
+      //   ),
+      // ),
+      home: !dataReturned
           ? /* FutureBuilder<List<Media>>(
         future: loadMediaFiles(),
         builder: (context, snapshot) {
@@ -266,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
               : Center(child: CircularProgressIndicator());
         },
       )*/
-      Container()
+          Container()
           : PhotosList(medias: media),
     );
   }
@@ -279,11 +291,57 @@ class PhotosList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: medias.length,
-      itemBuilder: (context, index) {
-        return StuffInTiles(medias[index], index, medias);
-      },
+    return Stack(
+      children: [
+        /// Paint
+        CustomPaint(
+          size: Size(width, (width * 0.43997524752475247).toDouble()),
+          //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+          painter: painBack,
+        ),
+        Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: 50)),
+            Center(
+              child: CircleAvatar(
+                radius: (AppDimens.space50 + AppDimens.space30) / 2,
+                backgroundImage: NetworkImage(
+                    'https://user-images.githubusercontent.com/8813505/113346085-672a2e00-9301-11eb-84a6-c6d55adc3608.png'),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+                child: Column(
+              children: [
+                Text(
+                  'Wellcome To Exoplayer',
+                  style: TextStyle(
+                    fontSize: AppDimens.padding16,
+                    color: AppColors.primary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 17,
+                ),
+                CustomHeader(title: 'Video'),
+              ],
+            )),
+          ],
+        ),
+
+        Padding(
+          padding: EdgeInsets.only(top: 200, left: 10, right: 10),
+          child: ListView.builder(
+            itemCount: medias.length,
+            itemBuilder: (context, index) {
+              return StuffInTiles(medias[index], index, medias);
+            },
+          ),
+        ),
+      ],
     );
   }
 }
@@ -302,6 +360,7 @@ class StuffInTiles extends StatefulWidget {
 
 class _StuffInTilesState extends State<StuffInTiles> {
   Sample returnSample;
+
   Widget _buildSubTiles(Sample t) {
     return ListTile(
         dense: true,
@@ -315,9 +374,12 @@ class _StuffInTilesState extends State<StuffInTiles> {
           Sample result = await Navigator.push(
               widget._context,
               MaterialPageRoute(
-                  builder: (_) =>
-                      Player(
-                        sampleVideo: returnSample != null ? returnSample.name == t.name ? returnSample : t : t,
+                  builder: (_) => Player(
+                        sampleVideo: returnSample != null
+                            ? returnSample.name == t.name
+                                ? returnSample
+                                : t
+                            : t,
                       )));
           if (result != null) {
 //            SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);

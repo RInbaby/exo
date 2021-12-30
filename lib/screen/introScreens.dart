@@ -7,6 +7,7 @@ import 'package:lidaverse/common/utils.dart';
 import 'package:lidaverse/widget/custom_back_ground_paint.dart';
 
 import 'customOpenSource.dart';
+import 'custom_widget/bottomBar.dart';
 
 const painBack = BackCustomPainter();
 const painBackEnd = BackCustomPainterEnd();
@@ -170,7 +171,8 @@ class _OnBoardingPageState extends State<IntroScreen> {
                     },
                     pageBuilder: (BuildContext context, Animation<double> animation,
                         Animation<double> secondaryAnimation) {
-                      return MyHomePage();
+                      return BottomNaviBar();
+                        //MyHomePage();
                         //MyCustomList();
                     },
                     // MaterialPageRoute(
