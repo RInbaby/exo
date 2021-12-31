@@ -9,6 +9,7 @@ import 'package:lidaverse/common/theme/app_dimens.dart';
 import 'package:lidaverse/common/utils.dart';
 import 'package:lidaverse/screen/custom_widget/bottomBar.dart';
 import 'package:lidaverse/widget/custom_back_ground_paint.dart';
+import 'package:lidaverse/widget/custom_header.dart';
 
 // const painBack = BackCustomPainter();
 
@@ -52,10 +53,18 @@ class _InformationBarState extends State<InformationBar> {
                     radius: (AppDimens.space40 + AppDimens.space40) / 2,
                     backgroundImage: NetworkImage(
                         'https://user-images.githubusercontent.com/8813505/113346085-672a2e00-9301-11eb-84a6-c6d55adc3608.png'),
-                  ),
+                 ),
                 ),
               ],
             ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          CustomHeader(title: 'TỔNG QUAN'),
+          _customCard3(context,true),
+          SizedBox(
+            height: 15,
           ),
           _customCard(context, true),
           SizedBox(
@@ -67,6 +76,10 @@ class _InformationBarState extends State<InformationBar> {
           ),
           //list view
          // _card1(image: Images.img_i1),
+          CustomHeader(title: 'Lướt xem'),
+          SizedBox(
+            height: 15,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -371,7 +384,144 @@ class _InformationBarState extends State<InformationBar> {
       ),
     );
   }
-
+  Widget _customCard3(BuildContext context, bool check) {
+    return StatefulBuilder(
+      builder: (context, setState) => AnimatedContainer(
+        duration: Duration(milliseconds: 400),
+        curve: Curves.fastOutSlowIn,
+        margin: EdgeInsets.only(left: 10, right: 10, top: 10),
+        padding: EdgeInsets.only(
+          top: AppDimens.textSize24,
+          bottom: AppDimens.space10,
+        ),
+        decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  color: AppColors.primary.withOpacity(0.2),
+                  offset: Offset(0, 2),
+                  blurRadius: 3)
+            ]),
+        child: Column(
+          //mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Padding(
+                                padding:
+                                EdgeInsets.only(left: AppDimens.padding16)),
+                            //Padding(padding: EdgeInsets.only(left: width*0.016, top: width*0.0116)),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Streaming Video',
+                                    style: TextStyle(
+                                      color: AppColors.black,
+                                      fontSize: AppDimens.padding16,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 6,
+                                  ),
+                                  Text(
+                                    'Một kỹ thuật được sử dụng phổ biến ở các ứng dụng hiện nay',
+                                    style: TextStyle(
+                                      color: AppColors.black999999,
+                                      fontSize: AppDimens.padding12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.16,
+                            ),
+                            Expanded(
+                              child: Column(
+                                //crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Xem video trực tuyến một cách dễ dàng và tiện lợi',
+                                    style: TextStyle(
+                                      color: AppColors.black,
+                                      fontSize: AppDimens.padding16,
+                                    ),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                  SizedBox(
+                                    height: 6,
+                                  ),
+                                  Text(
+                                    'Truyền và nhận video thông qua internet',
+                                    style: TextStyle(
+                                      color: AppColors.black999999,
+                                      fontSize: AppDimens.padding12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 16,
+                            ),
+                          ],
+                        ),
+                        check
+                            ? SizedBox(
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                  top: 25,
+                                  right: 20,
+                                  left: 20,
+                                  bottom: 15),
+                              child: Expanded(
+                                  child: Image.network(
+                                    'https://o.rada.vn/data/image/2016/04/18/Stream--pic-2.jpg',
+                                  ))),
+                        )
+                            : SizedBox.shrink(),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              check = !check;
+                            });
+                          },
+                          child: Center(
+                            child: !check
+                                ? Text(
+                              'Xem thêm',
+                              // style: AppTextStyles.regularW400(context,
+                              //     size: AppDimens.textSize14,
+                              //     color: AppColors.grey74,
+                              //     lineHeight: 20),
+                            )
+                                : SvgPicture.asset(
+                              Images.ic_top,
+                              color: AppColors.grey74,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
   /// list view ngang
   // Widget _card1(BuildContext context){
   //   return Container(
@@ -388,9 +538,9 @@ class _InformationBarState extends State<InformationBar> {
   Widget _card1({String image}) {
     return Container(
       //width: width,
-      width: (width - AppDimens.padding16 * 3) / 2,
+      width: (width - AppDimens.padding16 * 3) / 2-20,
       //width - AppDimens.padding16 * 3)
-      height: height * 0.45,
+      height: height * 0.35,
       decoration: BoxDecoration(
         color: AppColors.white,
         // border: Border.all(
