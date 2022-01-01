@@ -14,6 +14,11 @@ class Images {
   static const String img_i3 = _img_ + 'i3.png';
   static const String img_icontem = _img_ + 'icontem.svg';
 
+  static const String img_1 = _img_ + '1.png';
+  static const String img_2 = _img_ + '2.jpg';
+  static const String img_3 = _img_ + '3.jpg';
+  static const String img_4 = _img_ + '4.jpg';
+
   /// item barr
 
   static const String img_home = _img_ + 'home.svg';

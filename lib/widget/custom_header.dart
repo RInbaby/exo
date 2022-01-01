@@ -18,7 +18,7 @@ class CustomHeader extends StatelessWidget {
 
   const CustomHeader({
     // this.color,
-     this.title,
+    this.title,
     // this.textColor,
     // this.onPressed,
     // this.hasRadius = true,

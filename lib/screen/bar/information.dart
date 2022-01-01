@@ -53,7 +53,7 @@ class _InformationBarState extends State<InformationBar> {
                     radius: (AppDimens.space40 + AppDimens.space40) / 2,
                     backgroundImage: NetworkImage(
                         'https://user-images.githubusercontent.com/8813505/113346085-672a2e00-9301-11eb-84a6-c6d55adc3608.png'),
-                 ),
+                  ),
                 ),
               ],
             ),
@@ -75,7 +75,7 @@ class _InformationBarState extends State<InformationBar> {
             height: 25,
           ),
           //list view
-         // _card1(image: Images.img_i1),
+          // _card1(image: Images.img_i1),
           CustomHeader(title: 'Lướt xem'),
           SizedBox(
             height: 15,
@@ -142,7 +142,7 @@ class _InformationBarState extends State<InformationBar> {
                           children: [
                             Padding(
                                 padding:
-                                    EdgeInsets.only(left: AppDimens.padding16)),
+                                EdgeInsets.only(left: AppDimens.padding16)),
                             //Padding(padding: EdgeInsets.only(left: width*0.016, top: width*0.0116)),
                             Expanded(
                               child: Column(
@@ -203,16 +203,16 @@ class _InformationBarState extends State<InformationBar> {
                         ),
                         check
                             ? SizedBox(
-                                child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 25,
-                                        right: 20,
-                                        left: 20,
-                                        bottom: 15),
-                                    child: Expanded(
-                                        child: Image.network(
-                                            'https://i.stack.imgur.com/zegNf.jpg'))),
-                              )
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                  top: 25,
+                                  right: 20,
+                                  left: 20,
+                                  bottom: 15),
+                              child: Expanded(
+                                  child: Image.network(
+                                      'https://i.stack.imgur.com/zegNf.jpg'))),
+                        )
                             : SizedBox.shrink(),
                         InkWell(
                           onTap: () {
@@ -223,16 +223,16 @@ class _InformationBarState extends State<InformationBar> {
                           child: Center(
                             child: !check
                                 ? Text(
-                                    'Xem thêm',
-                                    // style: AppTextStyles.regularW400(context,
-                                    //     size: AppDimens.textSize14,
-                                    //     color: AppColors.grey74,
-                                    //     lineHeight: 20),
-                                  )
+                              'Xem thêm',
+                              // style: AppTextStyles.regularW400(context,
+                              //     size: AppDimens.textSize14,
+                              //     color: AppColors.grey74,
+                              //     lineHeight: 20),
+                            )
                                 : SvgPicture.asset(
-                                    Images.ic_top,
-                                    color: AppColors.grey74,
-                                  ),
+                              Images.ic_top,
+                              color: AppColors.grey74,
+                            ),
                           ),
                         ),
                       ],
@@ -280,7 +280,7 @@ class _InformationBarState extends State<InformationBar> {
                           children: [
                             Padding(
                                 padding:
-                                    EdgeInsets.only(left: AppDimens.padding16)),
+                                EdgeInsets.only(left: AppDimens.padding16)),
                             //Padding(padding: EdgeInsets.only(left: width*0.016, top: width*0.0116)),
                             Expanded(
                               child: Column(
@@ -341,16 +341,16 @@ class _InformationBarState extends State<InformationBar> {
                         ),
                         check
                             ? SizedBox(
-                                child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 25,
-                                        right: 20,
-                                        left: 20,
-                                        bottom: 15),
-                                    child: Expanded(
-                                        child: Image.network(
-                                            'https://www.motocms.com/blog/wp-content/uploads/2018/06/EXOPlayer-Live-Streaming-featured.jpg'))),
-                              )
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                  top: 25,
+                                  right: 20,
+                                  left: 20,
+                                  bottom: 15),
+                              child: Expanded(
+                                  child: Image.network(
+                                      'https://www.motocms.com/blog/wp-content/uploads/2018/06/EXOPlayer-Live-Streaming-featured.jpg'))),
+                        )
                             : SizedBox.shrink(),
                         InkWell(
                           onTap: () {
@@ -361,16 +361,16 @@ class _InformationBarState extends State<InformationBar> {
                           child: Center(
                             child: !check
                                 ? Text(
-                                    'Xem thêm',
-                                    // style: AppTextStyles.regularW400(context,
-                                    //     size: AppDimens.textSize14,
-                                    //     color: AppColors.grey74,
-                                    //     lineHeight: 20),
-                                  )
+                              'Xem thêm',
+                              // style: AppTextStyles.regularW400(context,
+                              //     size: AppDimens.textSize14,
+                              //     color: AppColors.grey74,
+                              //     lineHeight: 20),
+                            )
                                 : SvgPicture.asset(
-                                    Images.ic_top,
-                                    color: AppColors.grey74,
-                                  ),
+                              Images.ic_top,
+                              color: AppColors.grey74,
+                            ),
                           ),
                         ),
                       ],

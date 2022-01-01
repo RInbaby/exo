@@ -232,7 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<List<Media>> loadMediaFiles() async {
     String jsonString =
-        await rootBundle.loadString('assets/data/media.exolist.json');
+    await rootBundle.loadString('assets/data/media.exolist.json');
     setState(() {
       dataReturned = true;
       media = Media.parseMediaLists(jsonString);
@@ -278,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
               : Center(child: CircularProgressIndicator());
         },
       )*/
-          Container()
+      Container()
           : PhotosList(medias: media),
     );
   }
@@ -314,21 +314,21 @@ class PhotosList extends StatelessWidget {
             ),
             Expanded(
                 child: Column(
-              children: [
-                Text(
-                  'Wellcome To Exoplayer',
-                  style: TextStyle(
-                    fontSize: AppDimens.padding16,
-                    color: AppColors.primary,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                CustomHeader(title: 'Video'),
-              ],
-            )),
+                  children: [
+                    Text(
+                      'Wellcome To Exoplayer',
+                      style: TextStyle(
+                        fontSize: AppDimens.padding16,
+                        color: AppColors.primary,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 17,
+                    ),
+                    CustomHeader(title: 'Video'),
+                  ],
+                )),
           ],
         ),
 
@@ -375,12 +375,12 @@ class _StuffInTilesState extends State<StuffInTiles> {
               widget._context,
               MaterialPageRoute(
                   builder: (_) => Player(
-                        sampleVideo: returnSample != null
-                            ? returnSample.name == t.name
-                                ? returnSample
-                                : t
-                            : t,
-                      )));
+                    sampleVideo: returnSample != null
+                        ? returnSample.name == t.name
+                        ? returnSample
+                        : t
+                        : t,
+                  )));
           if (result != null) {
 //            SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
             print("back from player");
