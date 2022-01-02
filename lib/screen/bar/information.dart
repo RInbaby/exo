@@ -69,33 +69,7 @@ class _InformationBarState extends State<InformationBar> {
           SizedBox(
             height: 25,
           ),
-          //list view
-          // _card1(image: Images.img_i1),
-          // CustomHeader(title: 'Lướt xem'),
-          // SizedBox(
-          //   height: 15,
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Padding(padding: EdgeInsets.only(left: 10, right: 10)),
-          //     Expanded(child: _card1(image: Images.img_i1)),
-          //     SizedBox(width: 5,),
-          //     Expanded(child: _card1(image: Images.img_i2)),
-          //   ],
-          // ),
-          // SizedBox(
-          //   height: 25,
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Padding(padding: EdgeInsets.only(left: 10, right: 10)),
-          //     Expanded(child: _card1(image: Images.img_i1)),
-          //     SizedBox(width: 5,),
-          //     Expanded(child: _card1(image: Images.img_i2)),
-          //   ],
-          // ),
+
           SizedBox(
             height: 25,
           ),
@@ -204,9 +178,8 @@ class _InformationBarState extends State<InformationBar> {
                                   right: 20,
                                   left: 20,
                                   bottom: 15),
-                              child: Expanded(
-                                  child: Image.network(
-                                      'https://i.stack.imgur.com/zegNf.jpg'))),
+                              child: Image.network(
+                                  'https://i.stack.imgur.com/zegNf.jpg')),
                         )
                             : SizedBox.shrink(),
                         InkWell(
@@ -342,9 +315,8 @@ class _InformationBarState extends State<InformationBar> {
                                   right: 20,
                                   left: 20,
                                   bottom: 15),
-                              child: Expanded(
-                                  child: Image.network(
-                                      'https://www.motocms.com/blog/wp-content/uploads/2018/06/EXOPlayer-Live-Streaming-featured.jpg'))),
+                              child: Image.network(
+                                  'https://www.motocms.com/blog/wp-content/uploads/2018/06/EXOPlayer-Live-Streaming-featured.jpg')),
                         )
                             : SizedBox.shrink(),
                         InkWell(
@@ -479,10 +451,9 @@ class _InformationBarState extends State<InformationBar> {
                                   right: 20,
                                   left: 20,
                                   bottom: 15),
-                              child: Expanded(
-                                  child: Image.network(
-                                    'https://o.rada.vn/data/image/2016/04/18/Stream--pic-2.jpg',
-                                  ))),
+                              child: Image.network(
+                                'https://o.rada.vn/data/image/2016/04/18/Stream--pic-2.jpg',
+                              )),
                         )
                             : SizedBox.shrink(),
                         InkWell(
