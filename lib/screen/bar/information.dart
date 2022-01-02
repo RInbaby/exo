@@ -1,14 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lidaverse/common/images/images.dart';
 import 'package:lidaverse/common/theme/app_colors.dart';
 import 'package:lidaverse/common/theme/app_dimens.dart';
 import 'package:lidaverse/common/utils.dart';
-import 'package:lidaverse/screen/custom_widget/bottomBar.dart';
-import 'package:lidaverse/widget/custom_back_ground_paint.dart';
 import 'package:lidaverse/widget/custom_header.dart';
 
 // const painBack = BackCustomPainter();
@@ -52,7 +47,7 @@ class _InformationBarState extends State<InformationBar> {
                   child: CircleAvatar(
                     radius: (AppDimens.space40 + AppDimens.space40) / 2,
                     backgroundImage: NetworkImage(
-                        'https://user-images.githubusercontent.com/8813505/113346085-672a2e00-9301-11eb-84a6-c6d55adc3608.png'),
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0VQ0u6wCY4g5TE_hpWNbjbLf0pS8rzYscIg&usqp=CAU'),
                   ),
                 ),
               ],
@@ -76,31 +71,31 @@ class _InformationBarState extends State<InformationBar> {
           ),
           //list view
           // _card1(image: Images.img_i1),
-          CustomHeader(title: 'Lướt xem'),
-          SizedBox(
-            height: 15,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(padding: EdgeInsets.only(left: 10, right: 10)),
-              Expanded(child: _card1(image: Images.img_i1)),
-              SizedBox(width: 5,),
-              Expanded(child: _card1(image: Images.img_i2)),
-            ],
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(padding: EdgeInsets.only(left: 10, right: 10)),
-              Expanded(child: _card1(image: Images.img_i1)),
-              SizedBox(width: 5,),
-              Expanded(child: _card1(image: Images.img_i2)),
-            ],
-          ),
+          // CustomHeader(title: 'Lướt xem'),
+          // SizedBox(
+          //   height: 15,
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Padding(padding: EdgeInsets.only(left: 10, right: 10)),
+          //     Expanded(child: _card1(image: Images.img_i1)),
+          //     SizedBox(width: 5,),
+          //     Expanded(child: _card1(image: Images.img_i2)),
+          //   ],
+          // ),
+          // SizedBox(
+          //   height: 25,
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Padding(padding: EdgeInsets.only(left: 10, right: 10)),
+          //     Expanded(child: _card1(image: Images.img_i1)),
+          //     SizedBox(width: 5,),
+          //     Expanded(child: _card1(image: Images.img_i2)),
+          //   ],
+          // ),
           SizedBox(
             height: 25,
           ),

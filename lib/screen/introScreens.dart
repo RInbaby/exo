@@ -7,6 +7,7 @@ import 'package:lidaverse/common/utils.dart';
 import 'package:lidaverse/widget/custom_back_ground_paint.dart';
 
 import 'customOpenSource.dart';
+import 'custom_widget/bottomBar.dart';
 
 const painBack = BackCustomPainter();
 const painBackEnd = BackCustomPainterEnd();
@@ -86,19 +87,19 @@ class _OnBoardingPageState extends State<IntroScreen> {
               pages: [
                 PageViewModel(
                   title: "",
-                  body: "ảnh a ",
+                  body: "STREAM VIDEO - một trong những kỹ thuật truyền video phổ biến nhất",
                   image: _buildImage(Images.img_introa),
                   decoration: pageDecoration,
                 ),
                 PageViewModel(
                   title: "",
-                  body: "Ảnh b ",
+                  body: "EXOPLAYER-mã nguồn mở của google cho phép truyền video Stream ",
                   image: _buildImage(Images.img_introb),
                   decoration: pageDecoration,
                 ),
                 PageViewModel(
                   title: "",
-                  body: "Ảnh c ",
+                  body: "Ứng dụng LINDAVEST - ứng dụng hàng đầu xem video Stream!",
                   image: _buildImage(Images.img_introc),
                   decoration: pageDecoration,
                 ),
@@ -170,7 +171,7 @@ class _OnBoardingPageState extends State<IntroScreen> {
                     },
                     pageBuilder: (BuildContext context, Animation<double> animation,
                         Animation<double> secondaryAnimation) {
-                      return MyHomePage();
+                      return BottomNaviBar();
                         //MyCustomList();
                     },
                     // MaterialPageRoute(

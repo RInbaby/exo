@@ -1,42 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutterexodrmplayer/flutterexodrmplayer.dart';
 import 'package:flutterexodrmplayer/model/secured_video_content.dart';
-import 'common/images/images.dart';
-import 'common/theme/app_colors.dart';
-import 'model/media.dart';
-import 'package:flutterexodrmplayer/model/secured_video_content.dart';
+import 'package:lidaverse/common/utils.dart';
 
-class Player extends StatefulWidget {
-  Sample sampleVideo;
+class Player4 extends StatefulWidget {
+  // SampleVideo sampleVideo;
 
-  Player({Key key, @required this.sampleVideo}) : super(key: key);
+  Player4({Key key}) : super(key: key);
 
   @override
   _PlayerState createState() => _PlayerState();
 }
 
-class _PlayerState extends State<Player> {
+class _PlayerState extends State<Player4> {
   VideoPlayerController _controller;
+
+  //String name;
 
   @override
   void initState() {
     super.initState();
-print('Màn Item ok ');
+
+    print('Màn Item ivdeo  ok ');
+
+    String uri =
+        'https://storage.googleapis.com/wvmedia/clear/h264/tears/tears.mpd';
     _controller = VideoPlayerController.exoplayerMeidaFrameWork(MediaContent(
-      name: widget.sampleVideo.name,
-      uri: widget.sampleVideo.uri,
-      extension: widget.sampleVideo.extension,
-      drm_scheme: widget.sampleVideo.drm_scheme,
-      drm_license_url: widget.sampleVideo.drm_license_url,
-      ad_tag_uri: widget.sampleVideo.ad_tag_uri,
-      spherical_stereo_mode: widget.sampleVideo.spherical_stereo_mode,
-      playlist: widget.sampleVideo.playlist,
+      // name: widget.sampleVideo.name,
+      // uri: widget.sampleVideo.uri,
+      uri: uri,
+      // 'https://www.youtube.com/api/manifest/dash/id/bf5bb2419360daf1/source/youtube?as=fmp4_audio_clear,fmp4_sd_hd_clear&sparams=ip,ipbits,expire,source,id,as&ip=0.0.0.0&ipbits=0&expire=19000000000&signature=51AF5F39AB0CEC3E5497CD9C900EBFEAECCCB5C7.8506521BFC350652163895D4C26DEE124209AA9E&key=ik0',
     ))
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
+        setState(() {
+          _controller.play();
+        });
       });
 
 /*    _controller = VideoPlayerController.network(
@@ -45,7 +44,6 @@ print('Màn Item ok ');
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});
       });*/
-  ///Custom cho video hiển thị ngang
     // SystemChrome.setEnabledSystemUIOverlays([]);
     // SystemChrome.setPreferredOrientations(
     //     [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
@@ -53,18 +51,22 @@ print('Màn Item ok ');
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Video'),
-        backgroundColor: AppColors.blue,
-        toolbarHeight: 40,
-        leading: SvgPicture.asset(
-          Images.img_set,
-          color: AppColors.white,
-          alignment: Alignment.center,
-        ),
-      ),
-      body: Stack(children: [
+    return
+        //Scaffold(
+        // appBar: AppBar(
+        //   title: Text('Video'),
+        //   backgroundColor: AppColors.blue,
+        //   toolbarHeight: 40,
+        //   leading: SvgPicture.asset(
+        //     Images.img_set,
+        //     color: AppColors.white,
+        //     alignment: Alignment.center,
+        //   ),
+        // ),
+        Container(
+      // height: height/3*1/2 ,
+      width: width,
+      child: Column(children: [
         Center(
           child: _controller.value.initialized
               ? AspectRatio(
@@ -75,29 +77,31 @@ print('Màn Item ok ');
         ),
         MediaVolumeSeekBar(_controller),
       ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play();
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-        ),
-      ),
     );
-    //   MaterialApp(
+    // floatingActionButton: FloatingActionButton(
+    //   onPressed: () {
+    //     setState(() {
+    //       _controller.value.isPlaying
+    //           ? _controller.pause()
+    //           : _controller.play();
+    //     });
+    //   },
+    //   child: Icon(
+    //     _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+    //   ),
+    // ),
+    // );
+
+    //     MaterialApp(
     //   title: 'Video Demo',
     //   home: Scaffold(
     //     body: Stack(children: [
     //       Center(
     //         child: _controller.value.initialized
     //             ? AspectRatio(
-    //           aspectRatio: _controller.value.aspectRatio,
-    //           child: VideoPlayer(_controller),
-    //         )
+    //                 aspectRatio: _controller.value.aspectRatio,
+    //                 child: VideoPlayer(_controller),
+    //               )
     //             : Container(),
     //       ),
     //       MediaVolumeSeekBar(_controller),

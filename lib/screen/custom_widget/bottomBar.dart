@@ -4,11 +4,11 @@ import 'package:lidaverse/common/images/images.dart';
 import 'package:lidaverse/common/theme/app_colors.dart';
 import 'package:lidaverse/common/theme/app_dimens.dart';
 import 'package:lidaverse/common/utils.dart';
+import 'package:lidaverse/screen/bar/custom_video.dart';
 import 'package:lidaverse/screen/bar/information.dart';
 import 'package:lidaverse/widget/custom_back_ground_paint.dart';
 
 import '../customOpenSource.dart';
-import '../listVideo.dart';
 
 const painBack = BackCustomPainter();
 
@@ -31,9 +31,8 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
   @override
   Widget build(BuildContext context) {
     List<Widget> screen = [
-      MyHomePage(),
-      MyHomePage(), // man home
-      //ListVideoScreen(), // man thong bao
+      MyHomePageForScreen(),
+      MyListVideo(),
       InformationBar(), // man thong tin
     ];
     return Scaffold(

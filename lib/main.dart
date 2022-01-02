@@ -1,16 +1,13 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lidaverse/PlayerPage.dart';
-import 'package:introduction_screen/introduction_screen.dart';
-import 'package:lidaverse/screen/customOpenSource.dart';
 import 'package:lidaverse/screen/custom_widget/bottomBar.dart';
 import 'package:lidaverse/screen/introScreens.dart';
+import 'package:lidaverse/widget/Player2.dart';
 import 'package:sp_util/sp_util.dart';
 
-import 'model/media.dart';
+import 'PlayerPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,15 +21,16 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
-      title: 'Lidaverse',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home:
-      //IntroScreen(),
-      BottomNaviBar()
-      //MyCustomList(),
-    );
+        title: 'Lidaverse',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home:
+            IntroScreen(),
+            //BottomNaviBar()
+        //MyCustomList(),
+        // Player2()
+        );
   }
 }
 

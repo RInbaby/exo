@@ -9,9 +9,9 @@ class Images {
   static const String img_file = _img_ + 'file.svg';
   static const String img_set = _img_ + 'set.svg';
   static const String img_fileItem = _img_ + 'file_item.jpg';
-  static const String img_i1 = _img_ + 'i1.svg';
-  static const String img_i2 = _img_ + 'i2.svg';
-  static const String img_i3 = _img_ + 'i3.png';
+  static const String img_i1 = _img_ + 'backgroundcard1.svg';
+  static const String img_i2 = _img_ + 'backgroundcard2.svg';
+  static const String img_i3 = _img_ + 'backgroundcard2.svg';
   static const String img_icontem = _img_ + 'icontem.svg';
 
   static const String img_1 = _img_ + '1.png';

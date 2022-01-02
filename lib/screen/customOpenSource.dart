@@ -217,22 +217,22 @@ import 'package:lidaverse/widget/custom_header.dart';
 //ChewieDemo(sampleVideo: t,)
 const painBack = BackCustomPainter();
 
-class MyHomePage extends StatefulWidget {
+class MyHomePageForScreen extends StatefulWidget {
   final String title;
 
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePageForScreen({Key key, this.title}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePageForScreen> {
   bool dataReturned;
   List<Media> media;
 
   Future<List<Media>> loadMediaFiles() async {
     String jsonString =
-    await rootBundle.loadString('assets/data/media.exolist.json');
+        await rootBundle.loadString('assets/data/media.exolist.json');
     setState(() {
       dataReturned = true;
       media = Media.parseMediaLists(jsonString);
@@ -278,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
               : Center(child: CircularProgressIndicator());
         },
       )*/
-      Container()
+          Container()
           : PhotosList(medias: media),
     );
   }
@@ -314,21 +314,21 @@ class PhotosList extends StatelessWidget {
             ),
             Expanded(
                 child: Column(
-                  children: [
-                    Text(
-                      'Wellcome To Exoplayer',
-                      style: TextStyle(
-                        fontSize: AppDimens.padding16,
-                        color: AppColors.primary,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 17,
-                    ),
-                    CustomHeader(title: 'Video'),
-                  ],
-                )),
+              children: [
+                Text(
+                  'Wellcome To Exoplayer',
+                  style: TextStyle(
+                    fontSize: AppDimens.padding16,
+                    color: AppColors.primary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 17,
+                ),
+                CustomHeader(title: 'Video'),
+              ],
+            )),
           ],
         ),
 
@@ -340,6 +340,7 @@ class PhotosList extends StatelessWidget {
               return StuffInTiles(medias[index], index, medias);
             },
           ),
+
         ),
       ],
     );
@@ -371,16 +372,18 @@ class _StuffInTilesState extends State<StuffInTiles> {
           print("url ${t.uri ?? ""}");
           print("url ${t.drm_license_url ?? ""}");
           print("url ${t.playedLength ?? ""}");
+          print("name ${t.name}");
           Sample result = await Navigator.push(
               widget._context,
               MaterialPageRoute(
                   builder: (_) => Player(
-                    sampleVideo: returnSample != null
-                        ? returnSample.name == t.name
-                        ? returnSample
-                        : t
-                        : t,
-                  )));
+                        sampleVideo: returnSample != null
+                            ? returnSample.name == t.name
+                                ? returnSample
+                                : t
+                            : t,
+                      )));
+
           if (result != null) {
 //            SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
             print("back from player");
