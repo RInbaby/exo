@@ -56,7 +56,7 @@ class _InformationBarState extends State<InformationBar> {
           SizedBox(
             height: 25,
           ),
-          CustomHeader(title: 'TỔNG QUAN'),
+          CustomHeader(title: 'GIỚI THIỆU'),
           _customCard3(context,true),
           SizedBox(
             height: 15,

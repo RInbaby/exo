@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lidaverse/PlayerPage.dart';
-import 'package:lidaverse/common/images/images.dart';
 import 'package:lidaverse/common/theme/app_colors.dart';
 import 'package:lidaverse/common/theme/app_dimens.dart';
 import 'package:lidaverse/common/utils.dart';
@@ -316,7 +314,7 @@ class PhotosList extends StatelessWidget {
                 child: Column(
               children: [
                 Text(
-                  'Wellcome To Exoplayer',
+                  'Wellcome To Exoplayer Play Video Stream',
                   style: TextStyle(
                     fontSize: AppDimens.padding16,
                     color: AppColors.primary,
@@ -326,7 +324,7 @@ class PhotosList extends StatelessWidget {
                 SizedBox(
                   height: 17,
                 ),
-                CustomHeader(title: 'Video'),
+                CustomHeader(title: 'TẤT CẢ'),
               ],
             )),
           ],
@@ -370,8 +368,8 @@ class _StuffInTilesState extends State<StuffInTiles> {
         onLongPress: () => print("long press"),
         onTap: () async {
           print("url ${t.uri ?? ""}");
-          print("url ${t.drm_license_url ?? ""}");
-          print("url ${t.playedLength ?? ""}");
+          print("drm_license_url ${t.drm_license_url ?? ""}");
+          print("playedLength ${t.playedLength ?? ""}");
           print("name ${t.name}");
           Sample result = await Navigator.push(
               widget._context,
